@@ -1,16 +1,21 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.3'
+git_source(:github) do |repo_name|
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
+  "https://github.com/#{repo_name}.git"
+end
 
-gem 'coffee-rails', '~> 4.1.0'
+gem 'rails'
+
+gem 'coffee-rails'
 gem 'devise'
 gem 'jquery-rails'
 gem 'nokogiri'
-gem 'sass-rails', '~> 4.0'
+gem 'sass-rails'
 gem 'sqlite3'
 gem 'turbolinks'
-gem 'uglifier', '>= 1.3.0'
-gem 'symmetric-encryption', '~> 3.8.1'
+gem 'uglifier'
+gem 'symmetric-encryption'
 
 gem 'quiet_assets', group: :development
 
@@ -18,16 +23,18 @@ group :development, :test do
   gem 'byebug' # Call 'byebug' in code to stop execution and get a debugger console
   gem 'capybara'
   # gem 'chromedriver-helper' # helps with using Chrome in feature specs
-  gem 'factory_girl_rails', '~> 4.5'
+  gem 'factory_girl_rails'
   gem 'pry'
   gem 'pry-rails'
   gem 'pry-rescue'
   gem 'pry-stack_explorer'
   gem 'puffing-billy'
-  gem 'rspec-rails', '~> 3.2'
+  gem 'rspec-rails'
   gem 'selenium-webdriver' # used by JavaScript-dependent feature specs (`js: true`)
   gem 'spring' # Spring background-runs app in dev for speed
   gem 'spring-commands-rspec' # Enable Spring for RSpec
+  gem 'bootsnap', require: false
+  gem 'parallel_tests'
 end
 
 group :development do
@@ -38,7 +45,7 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'poltergeist' # helps with using PhantomJS headless browser in feature specs
-  gem 'shoulda-matchers', '3.0.1'
+  gem 'shoulda-matchers'
   gem 'vcr'
   gem 'webmock'
 end
